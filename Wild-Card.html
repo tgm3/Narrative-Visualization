@@ -60,7 +60,7 @@ d3.csv("wild-card.csv").then(function(data) {
       .data([data])
       .attr("class", "line")
       .attr("d", valueline1)
-      .attr("stroke", "red");
+      .style("stroke", "red");
 
   // Add the x Axis
   svg.append("g")
@@ -122,7 +122,7 @@ d3.csv("wild-card.csv").then(function(data) {
       .data([data])
       .attr("class", "line")
       .attr("d", valueline3)
-      .attr("stroke", "red");
+      .style("stroke", "red");
 
   // Add the x Axis
   svg2.append("g")
