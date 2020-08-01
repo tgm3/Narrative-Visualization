@@ -46,7 +46,7 @@ d3.csv("wild-card.csv").then(function(data) {
 
   // Scale the range of the data
   x.domain(d3.extent(data, function(d) { return d.quarter; }));
-  y.domain([0, d3.max(data, function(d) { return d.score_titans; })]);
+  y.domain([0, 24]);
 
   // Add the valueline path.
   svg.append("path")
