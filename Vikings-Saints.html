@@ -11,7 +11,7 @@
 </style>
 <body>
 <h1>Wild Card Round</h1>
-<h2>Tennessee Titans vs New England Patriots</h2>
+<h2>Minnesota Vikings vs New Orleans Saints</h2>
 <!-- load the d3.js library -->    	
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script>
@@ -55,12 +55,13 @@ d3.csv("wild-card.csv").then(function(data) {
   svg.append("path")
       .data([data])
       .attr("class", "line")
-      .attr("d", valueline);
+      .attr("d", valueline)
+      .style("stroke", "purple");
   svg.append("path")
       .data([data])
       .attr("class", "line")
       .attr("d", valueline1)
-      .style("stroke", "red");
+      .style("stroke", "brown");
 
   // Add the x Axis
   svg.append("g")
