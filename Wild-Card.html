@@ -29,6 +29,9 @@ var y = d3.scaleLinear().range([height, 0]);
 var valueline = d3.line()
     .x(function(d) { return x(d.quarter); })
     .y(function(d) { return y(d.score_titans); });
+var valueline1 = d3.line()
+    .x(function(d) { return x(d.quarter); })
+    .y(function(d) { return y(d.score_patriots); });
 
 // append the svg obgect to the body of the page
 // appends a 'group' element to 'svg'
@@ -53,6 +56,10 @@ d3.csv("wild-card.csv").then(function(data) {
       .data([data])
       .attr("class", "line")
       .attr("d", valueline);
+  svg.append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", valueline1);
 
   // Add the x Axis
   svg.append("g")
