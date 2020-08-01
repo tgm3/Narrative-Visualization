@@ -79,59 +79,59 @@ d3.csv("wild-card.csv").then(function(data) {
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 20, right: 20, bottom: 50, left: 70},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var margin2 = {top: 20, right: 20, bottom: 50, left: 70},
+    width2 = 960 - margin2.left - margin2.right,
+    height2 = 500 - margin2.top - margin2.bottom;
 
 // set the ranges
-var x = d3.scaleLinear().range([0, width]);
-var y = d3.scaleLinear().range([height, 0]);
+var x2 = d3.scaleLinear().range([0, width]);
+var y2 = d3.scaleLinear().range([height, 0]);
 
 // define the line
-var valueline = d3.line()
-    .x(function(d) { return x(d.quarter); })
-    .y(function(d) { return y(d.score_texans); });
-var valueline1 = d3.line()
-    .x(function(d) { return x(d.quarter); })
-    .y(function(d) { return y(d.score_bills); });
+var valueline2 = d3.line()
+    .x2(function(d) { return x2(d.quarter); })
+    .y2(function(d) { return y2(d.score_texans); });
+var valueline3 = d3.line()
+    .x2(function(d) { return x2(d.quarter); })
+    .y2(function(d) { return y2(d.score_bills); });
 
 // append the svg obgect to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+var svg2 = d3.select("body").append("svg")
+    .attr("width", width2 + margin2.left + margin2.right)
+    .attr("height", height2 + margin2.top + margin2.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+          "translate(" + margin2.left + "," + margin2.top + ")");
 
 // Get the data
 d3.csv("wild-card.csv").then(function(data) {
 
 
   // Scale the range of the data
-  x.domain([0,4]);
-  y.domain([0, 29]);
+  x2.domain([0,4]);
+  y2.domain([0, 29]);
 
   // Add the valueline path.
-  svg.append("path")
+  svg2.append("path")
       .data([data])
       .attr("class", "line")
-      .attr("d", valueline);
-  svg.append("path")
+      .attr("d", valueline2);
+  svg2.append("path")
       .data([data])
       .attr("class", "line")
-      .attr("d", valueline1)
+      .attr("d", valueline3)
       .attr("stroke", "red");
 
   // Add the x Axis
-  svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).ticks(4));
+  svg2.append("g")
+      .attr("transform", "translate(0," + height2 + ")")
+      .call(d3.axisBottom(x2).ticks(4));
 
   // Add the y Axis
-  svg.append("g")
-      .call(d3.axisLeft(y).ticks(4));
+  svg2.append("g")
+      .call(d3.axisLeft(y2).ticks(4));
 
 });
 
