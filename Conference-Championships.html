@@ -3,12 +3,12 @@
 <head>
     <style>
         .bar {
-            fill: steelblue;
+            fill: orange;
         }
     </style>
     <script src="https://d3js.org/d3.v4.min.js"></script>
 <body>
-<h1>TOP</h1>
+<h1>In the Conference Championships:</h1>
 <svg width="600" height="500"></svg>
 <script>
 
@@ -46,11 +46,11 @@
          .attr("x", width - 100)
          .attr("text-anchor", "end")
          .attr("stroke", "black")
-         .text("Year");
+         .text("Team");
 
         g.append("g")
          .call(d3.axisLeft(yScale).tickFormat(function(d){
-             return "$" + d;
+             return d + "%";
          })
          .ticks(10))
          .append("text")
@@ -59,7 +59,7 @@
          .attr("dy", "-5.1em")
          .attr("text-anchor", "end")
          .attr("stroke", "black")
-         .text("Stock Price");
+         .text("Odds of Winning Superbowl");
 
         g.selectAll(".bar")
          .data(data)
@@ -71,6 +71,13 @@
          .attr("height", function(d) { return height - yScale(d.chances); });
     });
 </script>
-<h1>BOTTOM</h1>
+<br>
+The Kansas City Chiefs beat the Tennesse Titans - <button onclick="window.location.href='Chiefs-Titans.html';">Score Info</button>
+<br>
+The San Francisco 49ers beat the Green Bay Packers - <button onclick="window.location.href='49ers-Packers.html';">Score Info</button>
+<br>
+The next round of the Playoffs is the Superbowl.
+<br>
+<button onclick="window.location.href='Divisional.html';">&lt;- Divisional Round</button> <button onclick="window.location.href='Superbowl.html';">Superbowl -&gt;</button>
 </body>
 </html>
