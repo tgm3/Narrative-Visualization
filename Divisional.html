@@ -1,13 +1,87 @@
-<h1>In Divisional Round:</h1>
+<!doctype html>
+<html>
+<head>
+    <style>
+        .bar {
+            fill: orange;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+<body>
+<h1 style="background-color:tomato;">In the Divisional Round:</h1>
+<svg width="600" height="500"></svg>
+<script>
+
+    var svg = d3.select("svg"),
+        margin = 200,
+        width = svg.attr("width") - margin,
+        height = svg.attr("height") - margin
+
+    svg.append("text")
+       .attr("transform", "translate(100,0)")
+       .attr("x", 50)
+       .attr("y", 50)
+       .attr("font-size", "24px")
+       .text("Remaining Teams Superbowl Odds")
+
+    var xScale = d3.scaleBand().range([0, width]).padding(0.4),
+        yScale = d3.scaleLinear().range([height, 0]);
+
+    var g = svg.append("g")
+               .attr("transform", "translate(" + 100 + "," + 100 + ")");
+
+    d3.csv("divisional-odds.csv", function(error, data) {
+        if (error) {
+            throw error;
+        }
+
+        xScale.domain(data.map(function(d) { return d.team; }));
+        yScale.domain([0, d3.max(data, function(d) { return d.chances; })]);
+
+        g.append("g")
+         .attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(xScale))
+         .append("text")
+         .attr("y", height - 250)
+         .attr("x", width - 100)
+         .attr("text-anchor", "end")
+         .attr("stroke", "black")
+         .text("Team");
+
+        g.append("g")
+         .call(d3.axisLeft(yScale).tickFormat(function(d){
+             return d + "%";
+         })
+         .ticks(10))
+         .append("text")
+         .attr("transform", "rotate(-90)")
+         .attr("y", 6)
+         .attr("dy", "-5.1em")
+         .attr("text-anchor", "end")
+         .attr("stroke", "black")
+         .text("Odds of Winning Superbowl");
+
+        g.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+         .attr("class", "bar")
+         .attr("x", function(d) { return xScale(d.team); })
+         .attr("y", function(d) { return yScale(d.chances); })
+         .attr("width", xScale.bandwidth())
+         .attr("height", function(d) { return height - yScale(d.chances); });
+    });
+</script>
 <br>
-The Tennessee Titans beat the Baltimore Ravens - <button onclick="window.location.href='Titans-Ravens.html';">Score Info</button>
+<p style="background-color:yellow;">The Tennessee Titans beat the Baltimore Ravens - <button onclick="window.location.href='Titans-Ravens.html';">Score Info</button>
 <br>
 The Kansas City Chiefs beat the Houton Texans - <button onclick="window.location.href='Chiefs-Texans.html';">Score Info</button>
 <br>
 The San Francisco 49ers beat the Minnesota Vikings - <button onclick="window.location.href='49ers-Vikings.html';">Score Info</button>
 <br>
-The Green Bay Packers beat the Seattle Seahawks - <button onclick="window.location.href='Packers-Seahawks.html';">Score Info</button>
+The Green Bay Packers beat the Seattle Seahawks - <button onclick="window.location.href='Packers-Seahawks.html';">Score Info</button></p>
 <br>
 The next round of the Playoffs is the Conference Championships.
 <br>
 <button onclick="window.location.href='Wild-Card.html';">&lt;- Wild Card Round</button> <button onclick="window.location.href='Conference-Championships.html';">Conference Championships -&gt;</button>
+</body>
+</html>
