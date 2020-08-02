@@ -67,10 +67,8 @@ d3.csv("conference-championships-odds.csv").then(function (data) {
 		return y(Number(d.chances));
 	})
 	.attr("width", x.bandwidth())
-	.attr("height", function (d) {
-		return height - y(Number(d.chances));
-	});
+	.attr("height", 100);
 });
 
 </script>
-<h1>BOTTOM1</h1>
+<h1>BOTTOM2</h1>
