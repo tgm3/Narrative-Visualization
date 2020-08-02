@@ -9,7 +9,7 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 <body>
-<h1>TEMP5</h1>
+<h1>TEMP6</h1>
 <svg width="600" height="500"></svg>
 <script>
 
@@ -54,7 +54,7 @@
          .attr("x", function(d) { return xScale(d.team); })
          .attr("y", function(d) { return yScale(d.chances); })
          .attr("width", xScale.bandwidth())
-         .attr("height", 100);
+         .attr("height", yScale(d.chances));
 });
 
 </script>
