@@ -1,12 +1,13 @@
-<h1>In the Conference Championships:</h1>
-
-
-<style>
-.bar {
-    fill: steelblue;
-}
-</style>
-<script src="https://d3js.org/d3.v5.min.js"></script>
+<!doctype html>
+<html>
+<head>
+    <style>
+        .bar {
+            fill: steelblue;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+<body>
 <svg width="600" height="500"></svg>
 <script>
 
@@ -69,15 +70,6 @@
          .attr("height", function(d) { return height - yScale(d.chances); });
     });
 </script>
-
-
-
-<br>
-The Kansas City Chiefs beat the Tennesse Titans - <button onclick="window.location.href='Chiefs-Titans.html';">Score Info</button>
-<br>
-The San Francisco 49ers beat the Green Bay Packers - <button onclick="window.location.href='49ers-Packers.html';">Score Info</button>
-<br>
-The next round of the Playoffs is the Superbowl.
-<br>
-<button onclick="window.location.href='Divisional.html';">&lt;- Divisional Round</button> <button onclick="window.location.href='Superbowl.html';">Superbowl -&gt;</button>
+</body>
+</html>
 
