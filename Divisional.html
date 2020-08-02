@@ -68,7 +68,7 @@
          .attr("x", function(d) { return xScale(d.team); })
          .attr("y", function(d) { return yScale(d.chances); })
          .attr("width", xScale.bandwidth())
-         .attr("height", function(d) { return height - yScale(d.chances); });
+         .attr("height", function(d) { return height - 2*yScale(d.chances); });
     });
 </script>
 <br>
