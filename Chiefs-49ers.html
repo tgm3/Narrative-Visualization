@@ -80,8 +80,8 @@ d3.csv("superbowl.csv").then(function(data) {
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x).ticks(4))
       .append("text")
-      .attr("y", height - 250)
-      .attr("x", width - 100)
+      .attr("y", height - 350)
+      .attr("x", width - 200)
       .attr("text-anchor", "end")
       .style("stroke", "black")
       .text("Quarter");
