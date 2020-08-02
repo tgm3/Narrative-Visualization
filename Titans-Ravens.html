@@ -15,7 +15,7 @@ h2 {
 </style>
 <body>
 <h1>Divisional Round</h1>
-<h2>Tennessee Titans vs Baltimore Ravens</h2>
+<h2 style="color:blue;">Tennesse Titans</h2><h2> vs </h2><h2 style="color:purple;">Baltimore Ravens</h2>
 <h3>Titans Win: 28-12</h3>
 <!-- load the d3.js library -->    	
 <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -60,7 +60,8 @@ d3.csv("divisional.csv").then(function(data) {
   svg.append("path")
       .data([data])
       .attr("class", "line")
-      .attr("d", valueline);
+      .attr("d", valueline)
+      .style("stroke", "blue");
   svg.append("path")
       .data([data])
       .attr("class", "line")
