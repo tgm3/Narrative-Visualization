@@ -30,7 +30,7 @@
     var g = svg.append("g")
                .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
-    d3.csv("superbowl.csv", function(error, data) {
+    d3.csv("superbowl-odds.csv", function(error, data) {
         if (error) {
             throw error;
         }
