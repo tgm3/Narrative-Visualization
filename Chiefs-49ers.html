@@ -14,7 +14,7 @@ h2 {
 
 </style>
 <body>
-<h1 style="background-color:tomato;">NFL Supe###rbowl</h1>
+<h1 style="background-color:tomato;">NFL Superbowl</h1>
 <h2 style="color:red;">Kansas City Chiefs</h2><h2> vs </h2><h2 style="color:tan;">San Francisco 49ers</h2>
 <h3>Chiefs Win: 31-20</h3>
 <!-- load the d3.js library -->    	
@@ -80,8 +80,8 @@ d3.csv("superbowl.csv").then(function(data) {
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x).ticks(4))
       .append("text")
-      .attr("y", height - 450)
-      .attr("x", width - 300)
+      .attr("y", height - 400)
+      .attr("x", width - 100)
       .attr("text-anchor", "end")
       .style("stroke", "black")
       .text("Quarter");
