@@ -9,7 +9,7 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 <body>
-<h1>TEMP2</h1>
+<h1>TEMP3</h1>
 <svg width="600" height="500"></svg>
 <script>
 
@@ -24,6 +24,29 @@
 
     var g = svg.append("g")
                .attr("transform", "translate(" + 100 + "," + 100 + ")");
+    
+    d3.csv("conference-championships-odds.csv", function(error, data) {
+        if (error) {
+            throw error;
+        }
+
+        xScale.domain(data.map(function(d) { return d.team; }));
+        yScale.domain([0, d3.max(data, function(d) { return d.chances; })]);
+
+        g.append("g")
+         .attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(xScale));
+
+        g.append("g")
+         .call(d3.axisLeft(yScale).tickFormat(function(d){
+             return "$" + d;
+         }).ticks(10))
+         .append("text")
+         .attr("y", 6)
+         .attr("dy", "0.71em")
+         .attr("text-anchor", "end")
+         .text("value");
+});
 
 </script>
 </body>
