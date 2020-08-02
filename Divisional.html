@@ -36,7 +36,7 @@
         }
 
         xScale.domain(data.map(function(d) { return d.team; }));
-        yScale.domain([0, d3.max(data, function(d) { return d.chances; })]);
+        yScale.domain([0, 6]);
 
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
