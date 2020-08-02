@@ -15,7 +15,7 @@ h2 {
 </style>
 <body>
 <h1>Wild Card Round</h1>
-<h2>Seattle Seahawks vs Philadelphia Eagles</h2>
+<h2 style="color:blue;">Seattle Seahawks</h2><h2> vs </h2><h2 style="color:green;">Philadelphia Eagles</h2>
 <h3>Seahawks Win: 17-9</h3>
 <!-- load the d3.js library -->    	
 <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -60,7 +60,8 @@ d3.csv("wild-card.csv").then(function(data) {
   svg.append("path")
       .data([data])
       .attr("class", "line")
-      .attr("d", valueline);
+      .attr("d", valueline)
+      .style("stroke", "blue");
   svg.append("path")
       .data([data])
       .attr("class", "line")
